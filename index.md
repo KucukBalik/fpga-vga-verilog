@@ -7,7 +7,8 @@ categories: demo
 
 Add a short welcome message or introduction here. Aim to get the viewer interested in what follows! Guideline: 1 or 2 sentences. 
 
-I am adding a test sentence here at 13:24 on 03/12/24.
+Welcome to my Project!
+In my project, I aim to display a flag by using VGA and verilog.
 
 ## **Template VGA Design**
 ### **Project Set-Up**
@@ -16,6 +17,10 @@ Summarise the project set-up and design flow. Include a screenshot of your own s
 <img src="https://raw.githubusercontent.com/melgineer/fpga-vga-verilog/main/docs/assets/images/VGAPrjSum.png">
 ### **Template Code**
 Outline the structure and design of the Verilog code templates you were given. What do they do? Include reference to how a VGA interface works. Guideline: 2/3 short paragraphs, consider including screenshot(s).
+In the verilog code template, user can display different colours by sequence, or display them all at once as colour stripes.
+
+
+
 ### **Simulation**
 Explain the simulation process. Reference any important details, include a well-selected screenshot of the simulation. Guideline: 1/2 short paragraphs.
 ### **Synthesis**
