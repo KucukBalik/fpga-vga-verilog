@@ -19,6 +19,8 @@ Summarise the project set-up and design flow. Include a screenshot of your own s
 Outline the structure and design of the Verilog code templates you were given. What do they do? Include reference to how a VGA interface works. Guideline: 2/3 short paragraphs, consider including screenshot(s).
 In the verilog code template, user can display different colours by sequence, or display them all at once as colour stripes.
 
+First  inputs and outputs were defined at the beginning of the code. After that clock,vsync and colour stripe modules were added to sync the colours and display them by changing on the clock level.
+
 
 
 ### **Simulation**
