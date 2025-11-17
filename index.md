@@ -5,10 +5,8 @@ tags: fpga vga verilog
 categories: demo
 ---
 
-Add a short welcome message or introduction here. Aim to get the viewer interested in what follows! Guideline: 1 or 2 sentences. 
-
 Welcome to my Project!
-In my project, I aim to display a flag by using VGA and verilog.
+In my project, I aim to display a loading screen thorugh vga on 720p Resolution.
 
 ## **Template VGA Design**
 ### **Project Set-Up**
