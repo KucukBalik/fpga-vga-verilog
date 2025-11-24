@@ -6,11 +6,18 @@ categories: demo
 ---
 
 Welcome to my Project!
-In my project, I aim to display a loading screen thorugh vga on 720p Resolution.
+In my project, I aim to display a loading screen thorugh VGA Port on 720p Resolution.
 
 ## **Template VGA Design**
 ### **Project Set-Up**
-Summarise the project set-up and design flow. Include a screenshot of your own set-up, for example see the image of my Project Summary window below. Guideline 1 short paragraph.
+  I began to my project by creating a new Vivado Project. Accurate board (Basys3) was picked while creating the project.
+We were given a VGASync, VGATop and XDC Constraints file beforehand. All additional functionality (Loading Bar, ColourStripes) was implemented in Verilog. 
+After coding was done:
+1- Synthesis
+2- Implemantation
+3- Bitstream Generation
+Once the bitstream was created successfully, it was programemd onto Basys3 board to test VGA output.
+
 
 <img src="https://raw.githubusercontent.com/melgineer/fpga-vga-verilog/main/docs/assets/images/VGAPrjSum.png">
 ### **Template Code**
