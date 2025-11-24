@@ -10,21 +10,23 @@ In my project, I aim to display a loading screen thorugh VGA Port on 720p Resolu
 
 ## **Template VGA Design**
 ### **Project Set-Up**
-  I began to my project by creating a new Vivado Project. Accurate board (Basys3) was picked while creating the project.
-We were given a VGASync, VGATop and XDC Constraints file beforehand. All additional functionality (Loading Bar, ColourStripes) was implemented in Verilog. 
-After coding was done:
-1- Synthesis
-2- Implemantation
-3- Bitstream Generation
-Once the bitstream was created successfully, it was programemd onto Basys3 board to test VGA output.
+  I began to my project by creating a new Vivado Project. Accurate board (Basys3) was picked while creating the project.<br>
+We were given a VGASync, VGATop and XDC Constraints file beforehand. All additional functionality (Loading Bar, ColourStripes) was implemented in Verilog. <br>
+After coding was done,<br><br>
+1- Synthesis<br>
+2- Implemantation<br>
+3- Bitstream Generation<br><br>
+runned in sequence. Once the bitstream was created successfully, it was programemd onto Basys3 board to test VGA output.<br>
 
 
-<img src="https://raw.githubusercontent.com/melgineer/fpga-vga-verilog/main/docs/assets/images/VGAPrjSum.png">
+<img src="docs/assets/images/1.png">
 ### **Template Code**
 Outline the structure and design of the Verilog code templates you were given. What do they do? Include reference to how a VGA interface works. Guideline: 2/3 short paragraphs, consider including screenshot(s).
 In the verilog code template, user can display different colours by sequence, or display them all at once as colour stripes.
 
-First  inputs and outputs were defined at the beginning of the code. After that clock,vsync and colour stripe modules were added to sync the colours and display them by changing on the clock level.
+VGATop code is like the main where verilog code starts running. It connects LoadingBar simulation code and VGASync code to display the Loading Bar on the screen.
+
+
 
 
 
