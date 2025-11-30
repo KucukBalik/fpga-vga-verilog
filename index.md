@@ -36,14 +36,14 @@ Describe the synthesis and implementation processes. Consider including 1/2 usef
 Perhaps add a picture of your demo. Guideline: 1/2 sentences.
 
 ## **My VGA Design Edit**
-Introduce your own design idea. Consider how complex/achievabble this might be or otherwise. Reference any research you do online (use hyperlinks).
-
-With this project i am planning to do a loading screen which includes a bar that start to fade from red to green. After its finished it should restart itself from the beggining.
-Addition to this i am planning to add a Loading text above the bar.
+For this project, my main idea was to create a loading bar animation that looks like a real-world loading screen, and to display it in full 720p resolution. I think this is very achievable as long as I understand the timing values and how the VGA modules work together. I researched standard 720p timings online (for example:
+https://projectf.io/posts/video-timings-vga-720p-1080p/
+) and used those values to make sure my design would work on a real monitor. Once the timing was correct, creating the loading bar animation itself was mainly about controlling the row/column values and updating the bar at the right speed.
 
 ### **Code Adaptation**
-Briefly show how you changed the template code to display a different image. Demonstrate your understanding. Guideline: 1-2 short paragraphs.
-I changed my the three modules that we were given. 
+After I started my project, the first thing I changed was the timing values in the VGASync module. My goal was to get a 720p image on the screen, so I looked up the correct 720p timing parameters online and replaced the original 480p values in the template code. This allowed my VGA system to output the right resolution.
+
+Next, I replaced the ColourStripes module with my own LoadingBar module. I wanted a loading screen that starts red and fades into green as it fills up. I set limits for which rows the bar should appear in, and I updated the bar every clock. At first it was way too fast, so I added a counter and a flag to update the bar only every 8,000,000 clock cycles. This slowed it down enough to actually see the loading effect on the screen.
 
 ## **FOR VGA TOP** 
 <table>
@@ -96,10 +96,23 @@ When that happens, I update my progress value so the loading bar moves correctly
 At the end of my code, I added an else-if statement to limit the loading bar to specific rows (top and bottom). Inside those rows, I draw the actual bar. As the column increases, the red value goes down and the green value goes up, which creates the fading effect. That’s how I achieved the smooth color gradient on the loading bar.
 ### **Simulation**
 Show how you simulated your own design. Are there any things to note? Demonstrate your understanding. Add a screenshot. Guideline: 1-2 short paragraphs.
+For simulation, I used the Vivado simulator to test my design before putting it on the FPGA. I ran my VGATop and LoadingBar modules inside a VGATop so I could check important signals like row, col, vid_on, progress, and the RGB outputs. This helped me confirm that my 720p timing was working and that the loading bar was updating at the right speed. I mainly focused on watching the waveforms change because VGA updates very fast, so you don’t see a full picture in simulation, but the signal behaviour showed that my logic was correct.
+
+One thing to note is that the loading bar only updates every few million clock cycles, so in simulation it takes a while before you see progress change. I will add my simulation screenshots here to show how the signals looked while the design was running.
 ### **Synthesis**
-Describe the synthesis & implementation outputs for your design, are there any differences to that of the original design? Guideline 1-2 short paragraphs.
+
+<img src="docs/assets/images/Screenshot 2025-11-24 175128.png" width="1200">
+  
+After synthesis , Vivado shows how my design is connected in the RTL and implemented schematics. In the first picture, you can see the RTL diagram of my full design. It clearly shows how the clk_wiz block creates my pixel clock, how VGASync generates the row/col values, and how my LoadingBar module takes those values and outputs the RGB signals. This looks different from the original design because the ColourStripes module has been replaced with my custom loading bar, and there is extra logic for the fading effect and slowdown counter.
 ### **Demonstration**
-If you get your own design working on the Basys3 board, take a picture! Guideline: 1-2 sentences.
+<table>
+  <tr>
+    <td><img src="docs/assets/images/IMG_9457.jpeg" width="600"></td>
+    <td><img src="docs/assets/images/IMG_9458.jpeg" width="600"></td>
+    <td><img src="docs/assets/images/IMG_9459.jpeg" width="600"></td>
+  </tr>
+</table>
+
 
 ## **More Markdown Basics**
 This is a paragraph. Add an empty line to start a new paragraph.
