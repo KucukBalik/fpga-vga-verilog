@@ -29,11 +29,25 @@ The testbench acts as a main and connects everything together. It makes a clock,
 
 
 ### **Simulation**
-Explain the simulation process. Reference any important details, include a well-selected screenshot of the simulation. Guideline: 1/2 short paragraphs.
+Simulation is testing our hardware design on the computer to make sure the signals and outputs behave correctly before using the FPGA. It lets us see if the code is working by showing the signal levels over time.
+
+<img src="docs/assets/images/sim_temp.png">
+
+In my simulation screenshot the lines were flat the whole time, so I researched why this was happening. I found out that it was because the simulation was still at the very beginning and the pixel clock wasn’t active yet. If the simulation ran longer, the row and col counters would start changing and the design would show real activity on the waveform.
 ### **Synthesis**
-Describe the synthesis and implementation processes. Consider including 1/2 useful screenshot(s). Guideline: 1/2 short paragraphs.
+
+
+<img src="docs/assets/images/elobrated_design_template.png" width="900"  alt="Elaborated Design">
+<img src="docs/assets/images/syn_schematictemplate.png" width="900"  alt="Synthesized Design">
+
+
+Before synthesis, we can see the elaborated design which basically shows the pure Verilog view of our modules. After running synthesis, Vivado converts the code into real FPGA hardware, so we can now see the registers, wires, and how everything connects internally. After that, implementation places and routes all of the connections onto the actual FPGA chip. This step makes sure the design will work on the board so we can get the image on our screen.
+
 ### **Demonstration**
-Perhaps add a picture of your demo. Guideline: 1/2 sentences.
+<img src="docs/assets/images/IMG_9384.jpeg">
+<img src="docs/assets/images/IMG_9385.jpeg">
+
+Here is my screenshots for my outputs. As seen on the images my display is at 720p.
 
 ## **My VGA Design Edit**
 For this project, my main idea was to create a loading bar animation that looks like a real-world loading screen, and to display it in full 720p resolution. I think this is very achievable as long as I understand the timing values and how the VGA modules work together. I researched standard 720p timings online (for example:
@@ -95,10 +109,15 @@ When that happens, I update my progress value so the loading bar moves correctly
 
 At the end of my code, I added an else-if statement to limit the loading bar to specific rows (top and bottom). Inside those rows, I draw the actual bar. As the column increases, the red value goes down and the green value goes up, which creates the fading effect. That’s how I achieved the smooth color gradient on the loading bar.
 ### **Simulation**
-Show how you simulated your own design. Are there any things to note? Demonstrate your understanding. Add a screenshot. Guideline: 1-2 short paragraphs.
-For simulation, I used the Vivado simulator to test my design before putting it on the FPGA. I ran my VGATop and LoadingBar modules inside a VGATop so I could check important signals like row, col, vid_on, progress, and the RGB outputs. This helped me confirm that my 720p timing was working and that the loading bar was updating at the right speed. I mainly focused on watching the waveforms change because VGA updates very fast, so you don’t see a full picture in simulation, but the signal behaviour showed that my logic was correct.
 
-One thing to note is that the loading bar only updates every few million clock cycles, so in simulation it takes a while before you see progress change. I will add my simulation screenshots here to show how the signals looked while the design was running.
+For simulation, I used the Vivado simulator to test my design before using the FPGA. In my screenshot the signals look flat because the simulation was only at the very start, and the pixel clock needs more time before the VGA counters start updating. VGA works very fast, so it takes a lot of clock cycles before we can see any changes in the waveforms.
+
+If the simulation ran longer, the row, col and RGB signals would start changing as the screen is drawn. This shows that the simulation setup is correct and the design would work properly on the board.
+
+
+<img src="docs/assets/images/simulation_original.png" width="1200">
+
+
 ### **Synthesis**
 
 <img src="docs/assets/images/Screenshot 2025-11-24 175128.png" width="1200">
